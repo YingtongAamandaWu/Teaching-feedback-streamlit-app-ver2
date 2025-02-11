@@ -31,16 +31,8 @@ from sklearn.cluster import KMeans
 
 
 # Download necessary NLTK resources
-nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
-os.makedirs(nltk_data_path, exist_ok=True)
-nltk.data.path.append(nltk_data_path)
-
-# Download necessary NLTK resources
-try:
-    nltk.download('punkt', download_dir=nltk_data_path, quiet=True)
-    nltk.download('stopwords', download_dir=nltk_data_path, quiet=True)
-except:
-    pass  # Skip downloading if an error occurs
+nltk.download('punkt')
+nltk.download('stopwords')
 
 # Ensure punkt tokenizer is available before using it
 def safe_sent_tokenize(text):
