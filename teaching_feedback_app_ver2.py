@@ -31,6 +31,8 @@ from nltk.tokenize import sent_tokenize
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import io
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 
 # Download necessary NLTK resources
 nltk.download('punkt', quiet=True)  # Tokenizer for sentence splitting
