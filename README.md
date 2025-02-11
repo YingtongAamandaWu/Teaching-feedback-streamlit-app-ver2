@@ -1,4 +1,5 @@
 # Teaching Feedback Analyzer (Beta 2.0)
+## Please use the streamlit web-based app here: [https://amanda-wu-teaching-feedback-app-beta2-0.streamlit.app/]([url](https://amanda-wu-teaching-feedback-app-beta2-0.streamlit.app/)) 
 ![image](https://github.com/user-attachments/assets/761340fb-e556-4e47-9fb9-b4aaeeed1326)
 
 ## Overview
