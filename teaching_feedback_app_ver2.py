@@ -38,7 +38,6 @@ nltk.download('punkt_tab')
 from textblob.download_corpora import download_all
 download_all()  # Correct function to download all required corpora
 
-
 # Ensure punkt tokenizer is available before using it
 def safe_sent_tokenize(text):
     try:
@@ -46,7 +45,6 @@ def safe_sent_tokenize(text):
     except LookupError:
         st.error("Error: NLTK punkt tokenizer not found. Please reload the app.")
         return []
-
 
 
 def summarize_text_sumy(text, algorithm="LSA", sentences_count=2):
@@ -177,5 +175,5 @@ if st.button("Analyze"):
             st.write("Each column shows the main topic representing one category/type of feedback.")
             st.dataframe(pd.DataFrame(formatted_clusters))
 
-
-st.write("*Final words:* Thank you for using this app. This is a working project, so please don't hesitate to email me (ytwu@stanford.edu), if you have any questions, feedback, suggestions to share :) ") 
+st.subheader("Final words")
+st.write("Thank you for using this app. This is a working project, so please don't hesitate to email me (ytwu@stanford.edu), if you have any questions, feedback, suggestions to share :) ") 
