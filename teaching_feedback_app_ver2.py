@@ -31,8 +31,6 @@ from nltk.tokenize import sent_tokenize
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import io
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
 
 # Download necessary NLTK resources
 nltk.download('punkt', quiet=True)  # Tokenizer for sentence splitting
@@ -91,31 +89,6 @@ def cluster_sentences_keywords(sentences, keyword_dict):
             if any(keyword.lower() in sentence.lower() for keyword in keywords):
                 cluster_labels[i] = cluster_id
     return cluster_labels
-
-# Generate the pdf 
-def generate_pdf(summary, sentiment, wordcloud_image):
-    buffer = io.BytesIO()
-    pdf = canvas.Canvas(buffer, pagesize=letter)
-    pdf.setFont("Helvetica", 12)
-
-    pdf.drawString(100, 750, "Teaching Feedback Analysis Report")
-    pdf.drawString(100, 730, f"Average Sentiment: {sentiment}")
-    
-    pdf.drawString(100, 700, "Text Summary:")
-    text_lines = summary.split("\n")
-    y_position = 680
-    for line in text_lines:
-        pdf.drawString(100, y_position, line)
-        y_position -= 20  # Move down for the next line
-    
-    pdf.drawString(100, y_position - 20, "WordCloud Image:")
-    
-    # Save the canvas
-    pdf.showPage()
-    pdf.save()
-
-    buffer.seek(0)
-    return buffer
 
 
 st.title("Teaching Feedback Analyzer (beta-2.0)")
@@ -206,14 +179,6 @@ if st.button("Analyze"):
             st.write("Each column shows the main topic representing one category/type of feedback.")
             st.dataframe(pd.DataFrame(formatted_clusters))
 
-if st.button("Download report as PDF"):
-    pdf_buffer = generate_pdf(summarized_text, sentiment_result, wordcloud)
-    st.download_button(
-        label="Download PDF",
-        data=pdf_buffer,
-        file_name="Teaching_Feedback_Report.pdf",
-        mime="application/pdf"
-    )
 
 st.subheader("Final words")
 st.write("Thank you for using this app. This is a working project, so please don't hesitate to email me (ytwu@stanford.edu), if you have any questions, feedback, suggestions to share :) ") 
