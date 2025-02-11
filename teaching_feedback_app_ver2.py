@@ -12,12 +12,10 @@ Original file is located at
 # Import packages
 import os
 import streamlit as st
-import nltk
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly.express as px
-from nltk.tokenize import sent_tokenize
 from wordcloud import WordCloud
 from textblob import TextBlob
 from sumy.parsers.plaintext import PlaintextParser
@@ -31,8 +29,11 @@ from sklearn.cluster import KMeans
 
 
 # Download necessary NLTK resources
+import nltk
 nltk.download('punkt')
 nltk.download('stopwords')
+
+from nltk.tokenize import sent_tokenize
 
 # Ensure punkt tokenizer is available before using it
 def safe_sent_tokenize(text):
