@@ -1,4 +1,5 @@
 # Teaching Feedback Analyzer (Beta 2.0)
+![image](https://github.com/user-attachments/assets/761340fb-e556-4e47-9fb9-b4aaeeed1326)
 
 ## Overview
 The **Teaching Feedback Analyzer** is a Streamlit-based web application designed to analyze student feedback from course evaluations using Natural Language Processing (NLP) techniques. This tool helps instructors and teaching teams extract insights from large volumes of textual responses, making it easier to understand student sentiments, identify key themes, and summarize feedback effectively.
