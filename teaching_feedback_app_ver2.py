@@ -30,8 +30,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 
 # Download necessary NLTK resources
-nltk.download('punkt', quiet=True)
-nltk.download('stopwords', quiet=True)
+try:
+    nltk.download('punkt', quiet=True)
+    nltk.download('stopwords', quiet=True)
+except:
+    pass  # Skip downloading if an error occurs
 
 def summarize_text_sumy(text, algorithm="LSA", sentences_count=2):
     parser = PlaintextParser.from_string(text, Tokenizer("english"))
