@@ -92,12 +92,12 @@ st.subheader("Utilizing the power of Natural Language Processing (NLP), unsuperv
 st.write("developed by Amanda Wu (ytwu@stanford.edu)")
 st.write(" ") # intent to add space
 
-st.subheader("Step 1 Overview",divider=True)
+st.subheader("Step 1 Overview and instructions",divider=True)
 st.write("*Preview:* Dear fellow instructors and teaching teams, my goal for this app is to help analyze a large volume of text responses from survey questions, especially for a large-size class, such as BIO80s series. Feel free to test it out on your course feedback. This app does not capture user information, meaning that I as the app developer don't have access to your input data or who uses the app.") 
 st.write(" ") # intent to add space
 st.write("*Instructions:* You can download the course evaluation Excel sheet from the Stanford Course Eval system, then copy & paste students' responses for one of the open-ended questions (e.g., 'What would you like to say about this course to a student who is considering taking it in the future?'). On the app, you can select one of the text summary algorithms to summarize the course feedback (this is equivalent to a text summary function you see in Amazon product reviews). Meanwhile, you can exclude certain words that are less informative (such as 'course', 'class') from the wordcloud image visualization. The output of this app includes text summary, sentiment analysis (it analyzes sentiments behind the text, with positive value meaning positive sentiments),  a wordcloud image, and a table that show different categoiries of feedback based on text clustering.")
 
-st.subheader("Step 2 Enter teaching feedback below and define methods of analysis", divider=True)
+st.subheader("Step 2 Enter teaching feedback and define methods for analysis", divider=True)
 input_text = st.text_area("Please paste text of students' feedback for one survey question here:", height=150)
 summarization_algorithm = st.selectbox("Select a summarization algorithm (see more about different summarizartion methods here https://miso-belica.github.io/sumy/summarizators.html):", ["LSA", "Luhn", "TextRank", "LexRank"], index=0)
 clustering_method = st.radio("Select Clustering Method:", ["A) Unsupervised K-Means clustering", "B) Entering user-defined keywords"])
@@ -137,10 +137,10 @@ if st.button("Analyze"):
         st.markdown(f"**Sentence Count:** {len(sentences)}")
 
         summarized_text = summarize_text_sumy(input_text, algorithm=summarization_algorithm)
-        st.subheader("3.1 Results: Text summary")
+        st.subheader("3.1 Result: Text summary")
         st.write(summarized_text)
 
-        st.subheader("3.2 Results: Sentiment analysis")
+        st.subheader("3.2 Result: Sentiment analysis")
         st.write("Please find a boxplot summarizing the general sentiments from all students' comments below. You can hover over the scattered dots to see the original comment from each student. Polarity>0 means positive responses; polarity<0 means negative responses.")
         fig = px.box({"Sentence": sentences, "Polarity": polarities}, y="Polarity", points="all", hover_data=["Sentence"])
         st.plotly_chart(fig, use_container_width=True)
