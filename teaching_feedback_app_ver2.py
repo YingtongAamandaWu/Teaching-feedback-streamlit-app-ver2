@@ -26,14 +26,18 @@ from sumy.summarizers.text_rank import TextRankSummarizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
-
+import nltk
+from nltk.tokenize import sent_tokenize
 
 # Download necessary NLTK resources
-import nltk
-nltk.download('punkt')
-nltk.download('stopwords')
+nltk.download('punkt', quiet=True)  # Tokenizer for sentence splitting
+nltk.download('stopwords', quiet=True)  # Stopwords for filtering
+nltk.download('punkt_tab')
 
-from nltk.tokenize import sent_tokenize
+# Download TextBlob corpora
+from textblob.download_corpora import download_all
+download_all()  # Correct function to download all required corpora
+
 
 # Ensure punkt tokenizer is available before using it
 def safe_sent_tokenize(text):
