@@ -127,6 +127,8 @@ if clustering_method == "B) Entering user-defined keywords" and keyword_input.st
         keyword_dict[idx] = [kw.strip() for kw in line.split(",") if kw.strip()]
 
 st.subheader("Step 3 Result summary", divider=True)
+st.write("Please be patient while the analysis is running. This can take a minute.")
+
 
 if st.button("Analyze"):
     if not input_text.strip():
@@ -181,4 +183,5 @@ if st.button("Analyze"):
 
 
 st.subheader("Final words")
+st.write("If you would like to download this report, please go to the vertical three dots on the upper right corner --> click 'Print' to export a PDF.") 
 st.write("Thank you for using this app. This is a working project, so please don't hesitate to email me (ytwu@stanford.edu), if you have any questions, feedback, suggestions to share :) ") 
