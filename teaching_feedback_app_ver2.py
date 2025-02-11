@@ -10,7 +10,7 @@ Original file is located at
 """
 
 # Import packages
-
+import os
 import streamlit as st
 import nltk
 import pandas as pd
@@ -28,6 +28,7 @@ from sumy.summarizers.text_rank import TextRankSummarizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
+
 
 # Download necessary NLTK resources
 nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
