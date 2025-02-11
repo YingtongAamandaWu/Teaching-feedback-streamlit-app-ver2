@@ -1,8 +1,10 @@
 streamlit
-textblob
 nltk
-wordcloud
+pandas
+numpy
 matplotlib
 plotly
+wordcloud
+textblob
 sumy
-sklearn
+scikit-learn
