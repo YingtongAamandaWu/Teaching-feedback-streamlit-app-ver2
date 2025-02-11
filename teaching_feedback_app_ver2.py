@@ -30,11 +30,26 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 
 # Download necessary NLTK resources
+nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
+os.makedirs(nltk_data_path, exist_ok=True)
+nltk.data.path.append(nltk_data_path)
+
+# Download necessary NLTK resources
 try:
-    nltk.download('punkt', quiet=True)
-    nltk.download('stopwords', quiet=True)
+    nltk.download('punkt', download_dir=nltk_data_path, quiet=True)
+    nltk.download('stopwords', download_dir=nltk_data_path, quiet=True)
 except:
     pass  # Skip downloading if an error occurs
+
+# Ensure punkt tokenizer is available before using it
+def safe_sent_tokenize(text):
+    try:
+        return sent_tokenize(text)
+    except LookupError:
+        st.error("Error: NLTK punkt tokenizer not found. Please reload the app.")
+        return []
+
+
 
 def summarize_text_sumy(text, algorithm="LSA", sentences_count=2):
     parser = PlaintextParser.from_string(text, Tokenizer("english"))
@@ -117,7 +132,7 @@ if st.button("Analyze"):
     if not input_text.strip():
         st.warning("Please enter some text to analyze.")
     else:
-        sentences = sent_tokenize(input_text)
+        sentences = safe_sent_tokenize(input_text)
         polarities = [TextBlob(sentence).sentiment.polarity for sentence in sentences]
         avg_sentiment = sum(polarities) / len(polarities) if polarities else 0
         sentiment_result = "Positive" if avg_sentiment > 0 else "Negative" if avg_sentiment < 0 else "Neutral"
