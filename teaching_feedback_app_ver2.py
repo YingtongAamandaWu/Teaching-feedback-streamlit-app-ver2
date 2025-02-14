@@ -28,8 +28,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 import nltk
 from nltk.tokenize import sent_tokenize
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
 import io
 
 # Download necessary NLTK resources
