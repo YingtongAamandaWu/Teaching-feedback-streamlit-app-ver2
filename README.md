@@ -1,5 +1,5 @@
-# Teaching Feedback Analyzer (Beta 2.0)
-## Please use the streamlit web-based app [here](https://amanda-wu-teaching-feedback-app-beta2-0.streamlit.app/): [https://amanda-wu-teaching-feedback-app-beta2-0.streamlit.app/](https://amanda-wu-teaching-feedback-app-beta2-0.streamlit.app/)
+# Teaching Feedback Analyzer (Beta 2.1)
+## Please use the streamlit web-based app [here](https://teaching-feedback-analyzer.streamlit.app/)
 ![image](https://github.com/user-attachments/assets/761340fb-e556-4e47-9fb9-b4aaeeed1326)
 
 ## Overview
@@ -10,7 +10,7 @@ The **Teaching Feedback Analyzer** is a Streamlit-based web application designed
 - **Sentiment Analysis**: Evaluates the overall sentiment of student responses.
 - **WordCloud Visualization**: Highlights the most frequently used words in feedback, with options to exclude less informative words.
 - **Clustering Analysis**: Categorizes feedback into topics using:
-  - **A) Unsupervised K-Means Clustering**
+  - **A) Unsupervised Fuzzy C-means Clustering**
   - **B) User-Defined Keyword-Based Clustering**
 - **Interactive Data Visualization**: Displays sentiment distribution using a boxplot with hoverable points.
 - **Downloadable Report**: Allows users to download the analysis results as a PDF.
@@ -55,6 +55,7 @@ This application uses the following Python libraries:
 - `sklearn`
 - `nltk`
 - `reportlab`
+- `fuzzy-c-means`
 
 ## Contributing
 If you would like to contribute, feel free to fork this repository and submit a pull request. Any feedback, feature requests, or bug reports are welcome!
