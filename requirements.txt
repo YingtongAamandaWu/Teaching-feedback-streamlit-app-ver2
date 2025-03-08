@@ -8,3 +8,4 @@ wordcloud
 textblob
 sumy
 scikit-learn
+fcmeans
